@@ -1,7 +1,6 @@
 import { Layout } from "antd";
 import React from "react";
 import styled from "styled-components";
-import { ContentLayout } from "./ContentLayout";
 import { FooterLayout } from "./FooterLayout";
 import { HeaderLayout } from "./HeaderLayout";
 const { Header, Footer, Content } = Layout;
@@ -39,14 +38,13 @@ const StyledLayout = styled(Layout)`
   background: #f5f5f5;
   height: 100%;
 `;
-export const AppLayout: React.FC = () => {
-  const content = <ContentLayout />;
+export const AppLayout: React.FC = ({children}) => {
   return (
     <StyledLayout>
       <StyledHeader>
         <HeaderLayout />
       </StyledHeader>
-      <StyledContent>{content}</StyledContent>
+      <StyledContent>{children}</StyledContent>
       <StyledFooter>
         <FooterLayout />
       </StyledFooter>

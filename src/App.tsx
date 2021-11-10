@@ -1,21 +1,17 @@
-import { createBrowserHistory } from "history";
 import React from "react";
-import { Redirect, Route, Router, Switch } from "react-router";
-import "./App.css";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Auth } from "./routes/Auth";
-import { Main } from "./routes/Main";
-
-const history = createBrowserHistory();
+import { Dashboard } from "./pages/Dashboard/Dashboard";
+import "./App.css";
 
 const App: React.FC = () => {
   return (
-    <Router history={history}>
+    <BrowserRouter>
       <Switch>
+        <Route exact path="/" component={Dashboard} />
         <Route path="/auth" component={Auth} />
-        <Route path="/" component={Main} />
-        <Redirect to="/" />
       </Switch>
-    </Router>
+    </BrowserRouter>
   );
 };
 
